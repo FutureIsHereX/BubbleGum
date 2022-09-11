@@ -10,7 +10,7 @@ import android.widget.FrameLayout
 import androidx.core.view.get
 import com.xuweilai.bubble.internal.match_parent
 
-class BubbleContainer(context: Context) : FrameLayout(context) {
+internal class BubbleContainer(context: Context) : FrameLayout(context) {
 
   private val bubbleView by lazy { get(0) as BubbleView }
 

@@ -27,6 +27,7 @@ class BubbleGumBuilder(activity: Activity) {
   private var bubbleView: BubbleView? = null
   private var bubbleToTargetViewOffset = 4.dp
   private var securityMargin = 4.dp
+  private var cancelable: Boolean = true
 
   internal var icon: Drawable? = null
   internal var text: String? = null
@@ -48,7 +49,6 @@ class BubbleGumBuilder(activity: Activity) {
    */
   internal var arrowXOffset: Int? = null
   @MillSecond internal var showDuration: Long = 6000
-  internal var cancelable: Boolean = true
 
   internal var onCloseClickListener: View.OnClickListener? = null
 

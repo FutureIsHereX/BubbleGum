@@ -1,6 +1,6 @@
 package com.xuweilai.bubble
 
-enum class PopupMode {
+internal enum class PopupMode {
   WINDOW,
   VIEW
 }

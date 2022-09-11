@@ -17,7 +17,7 @@ import com.xuweilai.bubble.internal.dp
 import com.xuweilai.bubble.internal.wrap_content
 
 @SuppressLint("ViewConstructor")
-class BubbleView internal constructor(
+internal class BubbleView(
   context: Context,
   private val builder: BubbleGumBuilder
 ) : LinearLayout(context) {

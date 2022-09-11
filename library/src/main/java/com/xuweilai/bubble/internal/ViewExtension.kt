@@ -1,14 +1,8 @@
 package com.xuweilai.bubble.internal
 
-import android.app.Activity
-import android.content.Context
 import android.content.res.Resources
-import android.graphics.Point
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import android.view.animation.Animation
-import androidx.core.view.*
 
 internal val Int.dp: Int
   get() = (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
