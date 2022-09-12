@@ -3,9 +3,7 @@ package com.xuweilai.bubble
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Region
-import android.util.Log
 import android.view.MotionEvent
-import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.get
 import com.xuweilai.bubble.internal.match_parent

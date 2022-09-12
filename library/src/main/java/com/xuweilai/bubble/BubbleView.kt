@@ -7,7 +7,6 @@ import android.text.TextUtils
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.LinearLayout
-
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.graphics.drawable.DrawableCompat
@@ -110,7 +109,6 @@ internal class BubbleView(
       updateLayoutParams<ViewGroup.LayoutParams> {
         width = bubbleMaxWidth
       }
-      setMeasuredDimension(bubbleMaxWidth, rhombusBorderLength * 10)
     }
   }
 
