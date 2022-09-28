@@ -15,7 +15,7 @@ import com.xuweilai.bubble.internal.atTopHalfOfScreen
 import com.xuweilai.bubble.internal.dp
 import java.lang.ref.WeakReference
 
-class BubbleGumBuilder(activity: Activity) {
+class BubbleGumBuilder constructor(activity: Activity) {
 
   private val activity: WeakReference<Activity>
   private val popupMode: PopupMode = PopupMode.VIEW
@@ -126,7 +126,6 @@ class BubbleGumBuilder(activity: Activity) {
     this.securityMargin = if (allowEdgeToEdge) 0.dp else 4.dp
   }
 
-  /** Warning: If there are multiple bubbles in the screen at the same time, the setting may be invalid */
   fun cancelable(cancelable: Boolean) = apply {
     this.cancelable = cancelable
   }
