@@ -13,12 +13,12 @@ BubbleGum requires at minimum `Android 6.0` (`API 23`).
 
 ## Usage
 
-```java
-new BubbleGumBuilder(this)
+```kotlin
+BubbleGum.Builder(this)
     .targetView(targetView)
     .icon(iconView)
     .text("some text")
-    .show();
+    .show()
 ```
 
 ## Screenshot
