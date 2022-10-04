@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.get
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.xuweilai.bubble.BubbleGumBuilder
+import com.xuweilai.bubble.BubbleGum
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     val bottomItemView = (bottomNavBar[0] as ViewGroup)[1]
 
     toolBar.postDelayed({
-      BubbleGumBuilder(this)
+      BubbleGum.Builder(this)
         .text("You have 3 new messages")
         .icon(getDrawable(R.drawable.ic_round_mail_24)!!)
         .backgroundColor(getColor(R.color.purple_500))
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         .show()
     }, 3000)
 
-    BubbleGumBuilder(this)
+    BubbleGum.Builder(this)
       .text("BubbleGum allows you to create and popup bubble in Android application")
       .targetView(toolBarTitleView)
       .bubbleCornerRadius(10)
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
       .cancelable(false)
       .show()
 
-    BubbleGumBuilder(this)
+    BubbleGum.Builder(this)
       .text("This is a tip for information")
       .backgroundColor(0xff0052ff.toInt())
       .icon(getDrawable(R.drawable.ic_round_info_24)!!)

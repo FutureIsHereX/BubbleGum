@@ -16,18 +16,18 @@ import com.xuweilai.bubble.internal.dp
 import com.xuweilai.bubble.internal.wrap_content
 
 @SuppressLint("ViewConstructor")
-internal class BubbleView constructor(
+internal class BubbleGumView constructor(
   context: Context,
-  private val builder: BubbleGumBuilder
+  private val bubbleGum: BubbleGum
 ) : LinearLayout(context) {
 
   private val contentGap = 8.dp
-  private val rectRoundRadius = builder.bubbleCornerRadius
+  private val rectRoundRadius = bubbleGum.bubbleCornerRadius
   private val rhombusBorderLength = 6.dp
 
-  private var infoColor = builder.foregroundColor
-  private var bubbleColor = builder.backgroundColor
-  private var bubbleMaxWidth = builder.bubbleMaxWidth
+  private var infoColor = bubbleGum.foregroundColor
+  private var bubbleColor = bubbleGum.backgroundColor
+  private var bubbleMaxWidth = bubbleGum.bubbleMaxWidth
 
   private val paint = Paint(Paint.ANTI_ALIAS_FLAG)
 
@@ -43,9 +43,9 @@ internal class BubbleView constructor(
       weight = 1f
       setMargins(0, rhombusBorderLength, 0, rhombusBorderLength)
     }
-    text = builder.text
-    textSize = builder.textSize
-    maxLines = builder.textMaxLines
+    text = bubbleGum.text
+    textSize = bubbleGum.textSize
+    maxLines = bubbleGum.textMaxLines
     ellipsize = TextUtils.TruncateAt.END
     setTextColor(infoColor)
   }
@@ -76,10 +76,10 @@ internal class BubbleView constructor(
   }
 
   private fun initAttribute() {
-    with(builder) {
+    with(bubbleGum) {
       if (icon != null) {
         iconView.setImageDrawable(icon)
-        if (builder.iconIsTintable) {
+        if (bubbleGum.tintIcon) {
           DrawableCompat.setTint(iconView.drawable, infoColor)
         }
         addView(iconView, 0)
@@ -96,16 +96,16 @@ internal class BubbleView constructor(
   }
 
   private fun initListener() {
-    if (builder.showCloseIcon) {
+    if (bubbleGum.showCloseIcon) {
       closeView.setOnClickListener {
-        builder.onCloseClickListener?.onClick(it)
+        bubbleGum.onCloseClickListener?.onClick(it)
       }
     }
   }
 
   override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-    if (!builder.disallowLimitMaxWidth && measuredWidth > bubbleMaxWidth) {
+    if (!bubbleGum.disallowLimitMaxWidth && measuredWidth > bubbleMaxWidth) {
       updateLayoutParams<ViewGroup.LayoutParams> {
         width = bubbleMaxWidth
       }
@@ -118,7 +118,7 @@ internal class BubbleView constructor(
   }
 
   private fun drawBubble(canvas: Canvas) {
-    drawArrow(canvas, builder.bubbleDirection)
+    drawArrow(canvas, bubbleGum.bubbleDirection)
     drawRoundRectangle(canvas)
   }
 
@@ -137,8 +137,8 @@ internal class BubbleView constructor(
       BubbleDirection.TOP -> height - rhombusBorderLength
       BubbleDirection.BOTTOM -> rhombusBorderLength
     }
-    val xPosition = if (builder.arrowXOffset != null) {
-      builder.arrowXOffset!!
+    val xPosition = if (bubbleGum.arrowXOffset != null) {
+      bubbleGum.arrowXOffset!!
     } else {
       width / 2
     }
@@ -159,7 +159,7 @@ internal class BubbleView constructor(
   }
 
   fun dismiss() {
-    builder.dismiss()
+    bubbleGum.dismiss()
   }
 
 }

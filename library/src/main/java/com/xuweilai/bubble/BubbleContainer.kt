@@ -10,7 +10,7 @@ import com.xuweilai.bubble.internal.match_parent
 
 internal class BubbleContainer constructor(context: Context) : FrameLayout(context) {
 
-  private val bubbleView by lazy { get(0) as BubbleView }
+  private val bubbleView by lazy { get(0) as BubbleGumView }
 
   var cancelable: Boolean = true
 
@@ -34,7 +34,7 @@ internal class BubbleContainer constructor(context: Context) : FrameLayout(conte
     return super.onTouchEvent(event)
   }
 
-  private fun getBubbleViewRegion(bubbleView: BubbleView): Region {
+  private fun getBubbleViewRegion(bubbleView: BubbleGumView): Region {
     val translationX = bubbleView.translationX
     val translationY = bubbleView.translationY
     val width = bubbleView.width
